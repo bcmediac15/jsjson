@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<htmL>
+    <head>
+        <title>Test JSon</title>
+    </head>
+    <body>
+
+        <div class="txJoson"></div>
+
+        <script src="js/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $.getJSON( "data.php", function( data ) {
+                var items = [];
+                var cx =0;
+                $.each( data, function( key, val ) {
+                    $.each( val, function( key1, val1 ) {
+                        items.push( "<li id='" + key1 + "'>" + val1.NAMA + " " + val1.KONTAK  +"</li>" );
+                        cx = cx+1;
+                    });
+                });
+                
+                $( "<ul/>", {
+                    "class": "my-new-list",
+                    html: items.join( "" )
+                }).appendTo( "body" );
+                });
+            });
+        </script>
+
+    </body>
+</htmL>
