@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<htmL>
+    <head>
+        <title>Contoh 01 JSon</title>
+        <style>
+            .my-new-list{
+                list-style: none;
+                font-size: 14px;
+                font-family: tahoma;
+            }
+            #idTitikNama{
+                margin-left: 40px;
+            }
+            #idTitikKontak{
+                margin-left: 24px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!--media menampilkan informasi-->
+        <div class="txJoson"></div>
+
+        <script src="js/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $.getJSON( "data/data01.json", function( data ) {
+                    var items = [];
+                        items.push( "<li id='idNAMA'>NAMA<span id ='idTitikNama'>: " + data.NAMA + "</span></li>" );
+                        items.push( "<li id='idTelp'>KONTAK<span id ='idTitikKontak'>: " + data.KONTAK + "</span></li>" );
+    
+                    $( "<ul/>", {
+                        "class": "my-new-list",
+                        html: items.join( "" )
+                    }).appendTo( "body" );
+                });
+            });
+        </script>
+
+    </body>
+</htmL>

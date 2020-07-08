@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <htmL>
     <head>
-        <title>Test JSon</title>
+        <title>Contoh 02 JSon</title>
+        <style>
+            .my-new-list{
+                list-style: none;
+                font-size: 14px;
+                font-family: tahoma;
+            }
+           
+        </style>
     </head>
     <body>
 
+        <!--media menampilkan informasi-->
         <div class="txJoson"></div>
 
         <script src="js/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
-                $.getJSON( "data.php", function( data ) {
+                $.getJSON( "data/data02.json", function( data ) {
                 var items = [];
-                var cx =0;
                 $.each( data, function( key, val ) {
                     $.each( val, function( key1, val1 ) {
-                        items.push( "<li id='" + key1 + "'>" + val1.NAMA + " " + val1.KONTAK  +"</li>" );
-                        cx = cx+1;
+                        items.push( "<li id='lsdata'>" + val1.NAMA + " [ " + val1.KONTAK  +" ]</li>" );
                     });
                 });
                 
